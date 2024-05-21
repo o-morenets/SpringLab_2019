@@ -12,7 +12,7 @@ public class BeanB {
         this.beanA = beanA;
     }
 
-    public boolean isBeanAAssigned(){
-        return beanA!=null;
+    public boolean isBeanAAssigned() {
+        return beanA != null;
     }
 }

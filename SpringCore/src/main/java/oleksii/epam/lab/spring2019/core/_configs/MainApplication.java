@@ -32,32 +32,33 @@ public class MainApplication {
         ApplicationContext context = new AnnotationConfigApplicationContext(MainApplication.class);
         System.out.println("Context initialization finished");
 
-//        useIoC(context);
+        useIoC(context);
 
-//        useResource(context);
+        useResource(context);
 
-//        useValidation(context);
+        useValidation(context);
 
-//        useSpEL(context);
+        useSpEL(context);
 
-//        useDataBuffer();
+        useDataBuffer();
     }
 
-    private static void useIoC(ApplicationContext context){
+    private static void useIoC(ApplicationContext context) {
         System.out.println("\n------------------------- IoC (Dependency injection) usage showcase");
 
         Object beanA = context.getBean("beanA");
         System.out.println("Bean A is assignable to BeanA class: " + (beanA instanceof BeanA));
         try {
             context.getBean("beanB");
-        }catch (NoSuchBeanDefinitionException e){
+        } catch (NoSuchBeanDefinitionException e) {
             System.out.println("Inside of catch block when trying to fetch BeanB instance by the incorrect name");
         }
         Object beanB = context.getBean("SpecialName");
         System.out.println("Bean B is assignable to BeanB class: " + (beanB instanceof BeanB));
-        if(!(beanB instanceof BeanB)) throw new RuntimeException();
+        if (!(beanB instanceof BeanB)) throw new RuntimeException();
         BeanB castedInstance = (BeanB) beanB;
-        System.out.println("Bean B has property BeanA injected: "+castedInstance.isBeanAAssigned()+"; and equals to existing bean A: "+castedInstance.getBeanA().equals(beanA));
+        System.out.println("Bean B has property BeanA injected: " + castedInstance.isBeanAAssigned() +
+                "; and equals to existing bean A: " + castedInstance.getBeanA().equals(beanA));
     }
 
     /*
@@ -69,16 +70,16 @@ public class MainApplication {
         System.out.println("\n------------------------- Resource usage showcase");
 
         Resource resourceNotExisting = context.getResource("http://dummyurl.not.exists");
-        System.out.println("Dummy resource not exists: "+resourceNotExisting.exists());
-        try{
+        System.out.println("Dummy resource not exists: " + resourceNotExisting.exists());
+        try {
             resourceNotExisting.readableChannel();
-        }catch (IOException e){
+        } catch (IOException e) {
             System.out.printf("Inside catch block for not existing resource: [%s] %s\n", e.getClass(), e.getMessage());
         }
         Resource resource = context.getResource("classpath:folder1/Resource01.txt");
-        ByteBuffer content = ByteBuffer.allocate((int)resource.contentLength());
+        ByteBuffer content = ByteBuffer.allocate((int) resource.contentLength());
         resource.readableChannel().read(content);
-        System.out.println("Valid resource exists: "+resource.exists());
+        System.out.println("Valid resource exists: " + resource.exists());
         System.out.println("Existing resource content:");
         System.out.println(new String(content.array()));
     }
@@ -87,24 +88,24 @@ public class MainApplication {
         Shows the usage of spring validation.
         This validation isn't the recommended way of validating in application and serves only as a showcase of a feature in spring core
      */
-    private static void useValidation(ApplicationContext context){
+    private static void useValidation(ApplicationContext context) {
         System.out.println("\n------------------------- Validation usage showcase");
 
         Validator validator = (Validator) context.getBean("objectValidator");
-        if(!validator.supports(ObjectToValidate.class)) throw new NotSupportedException();
+        if (!validator.supports(ObjectToValidate.class)) throw new NotSupportedException();
 
         ObjectToValidate validObject = new ObjectToValidate(10, "Not empty");
         Errors validObjectErrors = new BeanPropertyBindingResult(validObject, "objectToValidate");
         validator.validate(validObject, validObjectErrors);
-        System.out.println("Valid object has no errors: "+!validObjectErrors.hasErrors());
+        System.out.println("Valid object has no errors: " + !validObjectErrors.hasErrors());
 
         ObjectToValidate invalidObject = new ObjectToValidate(-85, "");
         Errors invalidObjectErrors = new BeanPropertyBindingResult(invalidObject, "objectToValidate");
         validator.validate(invalidObject, invalidObjectErrors);
-        System.out.println("Invalid object has no errors: "+!invalidObjectErrors.hasErrors());
+        System.out.println("Invalid object has no errors: " + !invalidObjectErrors.hasErrors());
 
-        for(var objectError: invalidObjectErrors.getAllErrors()){
-            System.out.println("Error: "+objectError.getObjectName()+" - ["+objectError.getCode() + "] " + objectError.getDefaultMessage());
+        for (var objectError : invalidObjectErrors.getAllErrors()) {
+            System.out.println("Error: " + objectError.getObjectName() + " - [" + objectError.getCode() + "] " + objectError.getDefaultMessage());
         }
     }
 
@@ -112,7 +113,7 @@ public class MainApplication {
         Shows small fraction of the usage of spring SpEL
         To learn more, read here: https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#expressions
      */
-    private static void useSpEL(ApplicationContext context){
+    private static void useSpEL(ApplicationContext context) {
         System.out.println("\n------------------------- SpEL usage showcase");
 
         SpELObject object = new SpELObject("Nikola Tesla", 10);
@@ -128,16 +129,16 @@ public class MainApplication {
     /*
         Shows usage of DataBuffer from spring core. This example is only for demonstration purposes.
      */
-    private static void useDataBuffer(){
+    private static void useDataBuffer() {
         System.out.println("\n------------------------- DataBuffer usage showcase");
-        
+
         DefaultDataBufferFactory dataBufferFactory = new DefaultDataBufferFactory();
 
         DataBuffer buffer = dataBufferFactory.allocateBuffer(10);
         buffer.write("01234".getBytes());
         byte[] readBytes = new byte[3];
         buffer.read(readBytes, 0, 3);
-        System.out.println("Read bytes in wave #1: "+new String(readBytes));
+        System.out.println("Read bytes in wave #1: " + new String(readBytes));
 
         buffer.write("56789".getBytes());
         readBytes = new byte[7];
