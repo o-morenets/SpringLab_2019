@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class Interceptor implements HandlerInterceptor {
+
     private final ModelController modelController;
 
     public Interceptor(ModelController modelController) {

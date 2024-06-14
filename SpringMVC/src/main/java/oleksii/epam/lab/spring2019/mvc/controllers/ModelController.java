@@ -12,20 +12,21 @@ import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class ModelController {
+
     @GetMapping({"/index2", "/2"})
-    public String getIndex(HttpServletRequest request, Model model){
+    public String getIndex(HttpServletRequest request, Model model) {
         model.addAttribute("greetingText", "Secret2");
         return "index";
     }
 
     @PostMapping(value = {"/receiveUser"}, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public String receiveUser(@RequestBody User user, Model model){
+    public String receiveUser(@RequestBody User user, Model model) {
         model.addAttribute("username", user.username);
         return "user";
     }
 
     @Data
-    private static class User{
+    private static class User {
         String username;
     }
 }

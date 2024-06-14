@@ -15,6 +15,7 @@ import java.util.List;
 @EnableWebMvc
 @Component
 public class ConfigureWebMVC implements WebMvcConfigurer {
+
     private final ApplicationContext applicationContext;
 
     public ConfigureWebMVC(ApplicationContext applicationContext) {
@@ -41,7 +42,7 @@ public class ConfigureWebMVC implements WebMvcConfigurer {
         registry.addResourceHandler("/static/**").addResourceLocations("classpath:/assets/static/");
     }
 
-    public SpringResourceTemplateResolver templateResolver(){
+    public SpringResourceTemplateResolver templateResolver() {
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
         templateResolver.setApplicationContext(applicationContext);
         templateResolver.setPrefix("classpath:assets/templates/");
@@ -51,7 +52,7 @@ public class ConfigureWebMVC implements WebMvcConfigurer {
         return templateResolver;
     }
 
-    public SpringTemplateEngine templateEngine(){
+    public SpringTemplateEngine templateEngine() {
         SpringTemplateEngine templateEngine = new SpringTemplateEngine();
         templateEngine.setTemplateResolver(templateResolver());
         templateEngine.setEnableSpringELCompiler(true);

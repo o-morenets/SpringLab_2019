@@ -12,6 +12,7 @@ import java.io.IOException;
 @RestController
 @RequestMapping("/rest")
 public class RestControllerExample {
+
     private final ApplicationContext context;
 
     public RestControllerExample(ApplicationContext context) {
@@ -19,12 +20,12 @@ public class RestControllerExample {
     }
 
     @GetMapping("/secret")
-    public String getPhrase(){
+    public String getPhrase() {
         return "redirect:/anotherUrl";
     }
 
     @GetMapping("/object")
-    public Object getObject(HttpServletResponse response){
+    public Object getObject(HttpServletResponse response) {
         return new DummyObject("name", 20);
     }
 
@@ -32,19 +33,21 @@ public class RestControllerExample {
     public byte[] getRestImage() throws IOException {
         return context.getResource("classpath:assets/internalImages/image.png").getInputStream().readAllBytes();
     }
+
     @ExceptionHandler(NotAuthorizedException.class)
-    public void handle(){
+    public void handle() {
 
     }
 
     @Data
     @AllArgsConstructor
-    private static class DummyObject{
+    private static class DummyObject {
         private String name;
         private int age;
     }
+
     @ResponseStatus(code = HttpStatus.FORBIDDEN)
-    private static class NotAuthorizedException extends RuntimeException{
+    private static class NotAuthorizedException extends RuntimeException {
 
     }
 }

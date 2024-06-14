@@ -6,8 +6,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class ModelAndViewController {
+
     @GetMapping("/")
-    public ModelAndView getIndex(ModelAndView mav){
+    public ModelAndView getIndex(ModelAndView mav) {
         mav.setViewName("index");
         return mav;
     }
