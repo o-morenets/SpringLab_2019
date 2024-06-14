@@ -3,6 +3,7 @@ package oleksii.epam.lab.spring2019.core._configs;
 
 import oleksii.epam.lab.spring2019.core.beans.BeanA;
 import oleksii.epam.lab.spring2019.core.beans.BeanB;
+import oleksii.epam.lab.spring2019.core.beans.BeanC;
 import oleksii.epam.lab.spring2019.core.spel.SpELObject;
 import oleksii.epam.lab.spring2019.core.validation.NotSupportedException;
 import oleksii.epam.lab.spring2019.core.validation.ObjectToValidate;
@@ -27,20 +28,18 @@ import java.nio.ByteBuffer;
 @PropertySource("classpath:application.properties")
 @ComponentScan({"oleksii.epam.lab.spring2019.core.beans", "oleksii.epam.lab.spring2019.core.validation"})
 public class MainApplication {
+
     public static void main(String[] args) throws IOException {
+
         //The class passed to constructor is the main class from which
         ApplicationContext context = new AnnotationConfigApplicationContext(MainApplication.class);
         System.out.println("Context initialization finished");
 
         useIoC(context);
-
-        useResource(context);
-
-        useValidation(context);
-
-        useSpEL(context);
-
-        useDataBuffer();
+//        useResource(context);
+//        useValidation(context);
+//        useSpEL(context);
+//        useDataBuffer();
     }
 
     private static void useIoC(ApplicationContext context) {
@@ -55,10 +54,26 @@ public class MainApplication {
         }
         Object beanB = context.getBean("SpecialName");
         System.out.println("Bean B is assignable to BeanB class: " + (beanB instanceof BeanB));
-        if (!(beanB instanceof BeanB)) throw new RuntimeException();
-        BeanB castedInstance = (BeanB) beanB;
-        System.out.println("Bean B has property BeanA injected: " + castedInstance.isBeanAAssigned() +
-                "; and equals to existing bean A: " + castedInstance.getBeanA().equals(beanA));
+        if (!(beanB instanceof BeanB))
+            throw new RuntimeException();
+        BeanB castedInstanceB = (BeanB) beanB;
+        System.out.println("Bean B has property BeanA injected: " + castedInstanceB.isBeanAAssigned() +
+                "; and equals to existing bean A: " + castedInstanceB.getBeanA().equals(beanA));
+
+        System.out.println("-------------------------------------");
+        BeanA castedInstanceA = (BeanA) beanA;
+
+        System.out.println(beanA);
+        System.out.println(castedInstanceA);
+        System.out.println(context.getBean(BeanA.class));
+
+        System.out.println(beanB);
+        System.out.println(castedInstanceB);
+        System.out.println(context.getBean(BeanB.class));
+
+        System.out.println(context.getBean(BeanC.class));
+        System.out.println(castedInstanceA.getBeanC());
+        System.out.println(castedInstanceB.getBean());
     }
 
     /*
