@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>oleksii.epam.lab.spring2019</groupId>
-	<artifactId>springdemoback</artifactId>
+	<artifactId>spring-demo-back</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>SpringDemoBack</name>
