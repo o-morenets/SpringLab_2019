@@ -1,4 +1,4 @@
-package oleksii.epam.lab.spring2019.mvc._config;
+package oleksii.epam.lab.spring2019.mvc.config;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.http.converter.HttpMessageConverter;
