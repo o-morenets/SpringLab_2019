@@ -1,4 +1,4 @@
-package oleksii.epam.lab.spring2019.mvc.controllers;
+package oleksii.epam.lab.spring2019.mvc.controller;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

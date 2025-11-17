@@ -1,6 +1,6 @@
 package oleksii.epam.lab.spring2019.mvc.config;
 
-import oleksii.epam.lab.spring2019.mvc.controllers.ModelController;
+import oleksii.epam.lab.spring2019.mvc.controller.ModelController;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;
