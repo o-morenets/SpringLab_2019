@@ -46,19 +46,19 @@ public class MainApplication {
         System.out.println("\n------------------------- IoC (Dependency injection) usage showcase");
 
         Object beanA = context.getBean("beanA");
-        System.out.println("Bean A is assignable to BeanA class: " + (beanA instanceof BeanA));
+        System.out.println("beanA is assignable to BeanA class: " + (beanA instanceof BeanA));
         try {
             context.getBean("beanB");
         } catch (NoSuchBeanDefinitionException e) {
-            System.out.println("Inside of catch block when trying to fetch BeanB instance by the incorrect name");
+            System.out.println("Inside of catch block when trying to fetch beanB instance by the incorrect name");
         }
-        Object beanB = context.getBean("SpecialName");
-        System.out.println("Bean B is assignable to BeanB class: " + (beanB instanceof BeanB));
+        Object beanB = context.getBean("specialName");
+        System.out.println("beanB is assignable to BeanB class: " + (beanB instanceof BeanB));
         if (!(beanB instanceof BeanB))
             throw new RuntimeException();
         BeanB castedInstanceB = (BeanB) beanB;
-        System.out.println("Bean B has property BeanA injected: " + castedInstanceB.isBeanAAssigned() +
-                "; and equals to existing bean A: " + castedInstanceB.getBeanA().equals(beanA));
+        System.out.println("beanB has property BeanA injected: " + castedInstanceB.isBeanAAssigned() +
+                "; and equals to existing beanA: " + castedInstanceB.getBeanA().equals(beanA));
 
         System.out.println("-------------------------------------");
         BeanA castedInstanceA = (BeanA) beanA;
@@ -85,7 +85,7 @@ public class MainApplication {
         System.out.println("\n------------------------- Resource usage showcase");
 
         Resource resourceNotExisting = context.getResource("http://dummyurl.not.exists");
-        System.out.println("Dummy resource not exists: " + resourceNotExisting.exists());
+        System.out.println("Dummy resource exists: " + resourceNotExisting.exists());
         try {
             resourceNotExisting.readableChannel();
         } catch (IOException e) {

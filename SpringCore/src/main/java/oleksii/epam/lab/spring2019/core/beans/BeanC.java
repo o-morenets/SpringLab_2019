@@ -16,4 +16,6 @@ public class BeanC {
     private Animal cat; // injection by name
 
     private final Animal dog; // injection by name
+
+    private final Animal myFish; // injection by name (given in @Component("myFish"))
 }

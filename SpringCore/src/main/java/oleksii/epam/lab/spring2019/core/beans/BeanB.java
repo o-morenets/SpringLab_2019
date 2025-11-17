@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Data
-@Component("SpecialName")
+@Component("specialName")
 public class BeanB {
 
     private final BeanA beanA;
