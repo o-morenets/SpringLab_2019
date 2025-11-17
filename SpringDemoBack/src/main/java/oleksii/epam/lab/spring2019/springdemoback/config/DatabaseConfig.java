@@ -1,4 +1,4 @@
-package oleksii.epam.lab.spring2019.springdemoback._configs;
+package oleksii.epam.lab.spring2019.springdemoback.config;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Configuration;

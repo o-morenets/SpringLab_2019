@@ -1,4 +1,4 @@
-package oleksii.epam.lab.spring2019.springdemoback._configs;
+package oleksii.epam.lab.spring2019.springdemoback.config;
 
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;

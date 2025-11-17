@@ -1,7 +1,7 @@
-package oleksii.epam.lab.spring2019.springdemoback.controllers;
+package oleksii.epam.lab.spring2019.springdemoback.controller;
 
-import oleksii.epam.lab.spring2019.springdemoback.entities.Secret;
-import oleksii.epam.lab.spring2019.springdemoback.services.SecretService;
+import oleksii.epam.lab.spring2019.springdemoback.entity.Secret;
+import oleksii.epam.lab.spring2019.springdemoback.service.SecretService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;

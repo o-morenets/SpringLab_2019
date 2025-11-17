@@ -1,4 +1,4 @@
-package oleksii.epam.lab.spring2019.springdemofront.configs;
+package oleksii.epam.lab.spring2019.springdemofront.config;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication(scanBasePackages = "oleksii.epam.lab.spring2019.springdemofront.*")
 public class SpringDemoFrontApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringDemoFrontApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SpringDemoFrontApplication.class, args);
+    }
 
 }

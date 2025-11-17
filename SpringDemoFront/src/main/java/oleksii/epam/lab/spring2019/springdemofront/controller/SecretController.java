@@ -1,7 +1,7 @@
-package oleksii.epam.lab.spring2019.springdemofront.controllers;
+package oleksii.epam.lab.spring2019.springdemofront.controller;
 
 import oleksii.epam.lab.spring2019.springdemofront.dto.Secret;
-import oleksii.epam.lab.spring2019.springdemofront.services.SecretService;
+import oleksii.epam.lab.spring2019.springdemofront.service.SecretService;
 import org.springframework.context.MessageSource;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;

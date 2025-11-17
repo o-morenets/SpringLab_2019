@@ -6,7 +6,7 @@ import javax.validation.ConstraintValidatorContext;
 /*
     Для коректної роботи необхідно було імплементувати інший інтерфейс (Не Validator, а ConstraintValidator)
     та використовувати @Constraint(validatedBy = OnlyLettersValidator.class) замість @Verified.
-    Окрім того треба щоб аннотація мала відповідні поля (
+    Окрім того, треба, щоб анотація мала відповідні поля (
         String message() default "Invalid secret";
         Class<?>[] groups() default {};
         Class<? extends Payload>[] payload() default {};

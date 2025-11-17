@@ -1,4 +1,4 @@
-package oleksii.epam.lab.spring2019.springdemoback.entities;
+package oleksii.epam.lab.spring2019.springdemoback.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,9 +13,11 @@ import javax.persistence.Table;
 @Entity(name = "secrets")
 @Table(name = "secrets2")
 public class Secret {
+
     @Id
     @Column(name = "username")
     private String username;
+
     @Column(name = "secret")
     private String secret;
 
