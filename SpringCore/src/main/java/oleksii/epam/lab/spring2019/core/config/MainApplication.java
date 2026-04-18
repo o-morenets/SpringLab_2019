@@ -26,7 +26,11 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 
 @PropertySource("classpath:application.properties")
-@ComponentScan({"oleksii.epam.lab.spring2019.core.beans", "oleksii.epam.lab.spring2019.core.validation"})
+@ComponentScan({
+        "oleksii.epam.lab.spring2019.core.beans",
+        "oleksii.epam.lab.spring2019.core.validation",
+        "oleksii.epam.lab.spring2019.core.config"
+})
 public class MainApplication {
 
     public static void main(String[] args) throws IOException {
